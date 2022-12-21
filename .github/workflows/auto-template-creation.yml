@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        repository: 
+        repository:
           - bare
         fluentflag:
           - --no-fluent
@@ -40,7 +40,7 @@ jobs:
             repository: fluent-postgres-leaf
 
     runs-on: ubuntu-latest
-    container: "swift:5.5-focal"
+    container: "swift:5.7-jammy"
     steps:
       - name: Configure git
         run: |
@@ -78,6 +78,4 @@ jobs:
           git add .
           git diff-index --quiet HEAD || git commit -m "Automatic generation from github.com/vapor/template"
           git push https://VaporBot:${{secrets.PROJECT_BOARD_AUTOMATION_PAT}}@github.com/vapor/template-${{ matrix.repository }}
-      
-              
-  
+

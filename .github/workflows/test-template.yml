@@ -1,4 +1,4 @@
-name: test 
+name: test
 
 on: [pull_request]
 
@@ -20,12 +20,12 @@ jobs:
         leafflags:
           - --leaf
           - --no-leaf
-        os: [ubuntu-20.04]
+        os: [ubuntu-22.04]
     runs-on: ${{ matrix.os }}
 
     steps:
-          
-      - name: Extract source of pull request 
+
+      - name: Extract source of pull request
         run:  |
           echo "##[set-output name=source;]$(echo ${{ github.event.pull_request.head.repo.full_name }})"
           echo "##[set-output name=branch;]$(echo ${{ github.head_ref }})"
